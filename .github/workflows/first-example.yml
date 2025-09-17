@@ -23,6 +23,8 @@ jobs:
         run: ls -ltra
 
       - name: read files
-        run: cat testfiles{1..10}.txt
+        run: |
+          cd test_files
+          cat testfiles{1..10}.txt
         
               
