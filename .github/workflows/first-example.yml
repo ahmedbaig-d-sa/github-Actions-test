@@ -7,7 +7,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - name: checkout
-        run: actions/checkout@v5
+        uses: actions/checkout@v5
     
       - name: welcome message
         run: echo "My test first message"
