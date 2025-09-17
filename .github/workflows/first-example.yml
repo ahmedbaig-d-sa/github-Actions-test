@@ -15,8 +15,10 @@ jobs:
           mkdir test_files
           cd test_files
           touch testfiles{1..10}.txt
-          echo "these are test files" >> testfiles{1..10}.txt
-        
+          for i in {1..10}; do
+            echo "these are test files" >> testfiles$i.txt
+          done
+
       - name: list files
         run: ls -ltra
 
