@@ -13,6 +13,6 @@ jobs:
         run: ls -ltra
 
       - name: read files
-        run: cat README.md
+        run: cat ../README.md
         
               
