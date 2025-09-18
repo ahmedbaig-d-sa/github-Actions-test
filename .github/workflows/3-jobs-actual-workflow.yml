@@ -57,10 +57,13 @@ jobs:
       
       - name: list files and deploying into /root directory
         run: |
-          sudo cp -r . $HOME
+          sudo cp -r ~/test_demo $HOME
           cd $HOME
           pwd
           ls -ltra
           
       - name: delete build files
-        run: rm -rf ~/test_demo
+        run: |
+          rm -rf ~/test_demo
+          pwd
+
