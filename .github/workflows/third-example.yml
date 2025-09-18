@@ -1,0 +1,16 @@
+name: Shell Script Workflow
+
+on: push
+
+jobs:
+  shell_script_workflow:
+    runs-on: ubuntu-lastest
+    steps:
+      - name: Checkout Step
+        uses: actions/checkout@v5
+     
+      - name: list files
+        run: ls -ltra
+
+      - name: Script Execution step
+        run: ./third-example.yml
