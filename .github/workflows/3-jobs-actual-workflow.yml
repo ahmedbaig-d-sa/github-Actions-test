@@ -58,9 +58,9 @@ jobs:
       - name: list files and deploying into /root directory
         run: |
           sudo cp -r . /root
-          sudo cd /root
-          sudo pwd
-          sudo ls -ltra
+          cd /root
+          pwd
+          ls -ltra
           
       - name: delete build files
         run: rm -rf ~/test_demo
