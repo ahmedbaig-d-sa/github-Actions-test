@@ -1,0 +1,46 @@
+name: generate file in accurate manner
+
+on: push
+
+jobs:
+  buld_job_1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout part
+        run: actions/checkout@v5
+
+      - name: install commands and create files
+        run: |
+          sudo apt update
+          sudo apt install tree -y
+        
+      - name: create folder and files using script
+        run: |
+          chmod +x multiple_josb.sh
+          ./multiple_josb.sh
+        
+
+  test_job_2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Directory
+        run: ls -ltra
+
+      - name: verify the data inside those files 
+        run: |
+          cd ~/test_demo
+          cat files{1..3}.txt
+
+  deploy_job_3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploying files
+        run: cd ~/test_demo
+      
+      - name: list files and deploying into /root directory
+        run: |
+          cp -r . /root
+          ls -ltra
+    
+      - name: delete build files
+        run: rm -rf ~/test_demo

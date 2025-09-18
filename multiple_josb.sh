@@ -16,7 +16,4 @@ Line 2: Shell scripting is fun
 Line 3: Testing file creation
 EOF
 
-echo "Files created in $(pwd):"
-ls -lh
-
 echo "All done ✅"
