@@ -12,9 +12,11 @@ jobs:
         run: |
           sudo apt update
           sudo apt install tree -y
+          pwd
         
       - name: create folder and files using script
         run: |
+          pwd
           chmod +x multiple_josb.sh
           ./multiple_josb.sh
     
