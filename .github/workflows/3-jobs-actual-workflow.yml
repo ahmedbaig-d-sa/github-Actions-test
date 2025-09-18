@@ -17,12 +17,23 @@ jobs:
         run: |
           chmod +x multiple_josb.sh
           ./multiple_josb.sh
+    
+      - name: Upload Artifacts into test
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: ~/test_demo
         
 
   test_job_2:
     runs-on: ubuntu-latest
     needs: buld_job_1
     steps:
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v5
+        with:
+            name: build-artifacts
+      
       - name: List Directory
         run: ls -ltra
 
@@ -31,10 +42,16 @@ jobs:
           cd ~/test_demo
           cat files{1..3}.txt
 
+
   deploy_job_3:
     runs-on: ubuntu-latest
     needs: test_job_2
     steps:
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v5
+        with:
+            name: build-artifacts
+            
       - name: deploying files
         run: cd ~/test_demo
       
