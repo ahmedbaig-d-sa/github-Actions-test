@@ -12,7 +12,6 @@ jobs:
         run: |
           sudo apt update
           sudo apt install tree -y
-          pwd
         
       - name: create folder and files using script
         run: |
@@ -24,7 +23,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: test_demo/
+          path: /home/runner/test_demo
         
 
   test_job_2:
@@ -38,9 +37,10 @@ jobs:
       
       - name: List Directory
         run: |
+          cd ..
           pwd
+          cd /home/runner/test_demo
           ls -ltra
-          cd /test_demo
 
 
       - name: verify the data inside those files 
@@ -63,13 +63,14 @@ jobs:
       
       - name: list files and deploying into /root directory
         run: |
-          sudo cp -r ~/test_demo $HOME
+          sudo cp -r /home/runner/test_demo $HOME
           cd $HOME
           pwd
           ls -ltra
           
       - name: delete build files
         run: |
-          rm -rf ~/test_demo
+          rm -rf /home/runner/test_demo
           pwd
+          ls -ltra /home/runner/
 
