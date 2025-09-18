@@ -22,7 +22,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: "**/*"
+          path: test_demo/
         
 
   test_job_2:
