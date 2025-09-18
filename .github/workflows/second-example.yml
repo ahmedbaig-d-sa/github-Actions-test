@@ -1,0 +1,27 @@
+name: Second workflow Tree Command
+
+on: push
+
+jobs:
+  tree-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tree Install command
+        run: |
+          sudo apt update && sudo apt upgrade -y
+          sudo apt install tree -y
+
+      - name: Command run step
+        run: |
+          echo "I'm running the tree command"
+          tree
+          tree >> tree.yml
+
+      - name: Cat Tree.yml file
+        run: |
+          ls -ltra
+          cat tree.yml
+        
+  
+        
+              
