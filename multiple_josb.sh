@@ -3,9 +3,9 @@
 
 echo "Starting test script..."
 
-# Create a directory for testing
-mkdir -p ~/test_demo
-cd ~/test_demo || exit
+# Create a directory for testing inside GitHub Actions workspace
+mkdir -p test_demo
+cd test_demo || exit
 
 # Create some files with data
 echo "This is file1 with test data" > file1.txt
@@ -17,7 +17,6 @@ Line 3: Testing file creation
 EOF
 
 pwd
-
 ls -ltra
 
 echo "All done ✅"

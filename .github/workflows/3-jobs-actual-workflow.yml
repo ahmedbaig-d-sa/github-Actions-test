@@ -23,7 +23,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: /home/runner/test_demo
+          path: test_demo
         
 
   test_job_2:
@@ -38,9 +38,8 @@ jobs:
       - name: List Directory
         run: |
           cd ..
-          ls -ltra
           pwd
-          cd /home/runner/test_demo/
+          cd test_demo
           ls -ltra
 
 
