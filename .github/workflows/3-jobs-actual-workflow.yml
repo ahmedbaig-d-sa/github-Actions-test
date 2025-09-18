@@ -38,8 +38,9 @@ jobs:
       - name: List Directory
         run: |
           cd ..
+          ls -ltra
           pwd
-          cd /home/runner/test_demo
+          cd /home/runner/test_demo/
           ls -ltra
 
 
