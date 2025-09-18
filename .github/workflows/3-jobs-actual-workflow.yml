@@ -18,6 +18,8 @@ jobs:
           pwd
           chmod +x multiple_josb.sh
           ./multiple_josb.sh
+          ls -ltra
+          pwd
     
       - name: Upload Artifacts into test
         uses: actions/upload-artifact@v4
@@ -37,9 +39,8 @@ jobs:
       
       - name: List Directory
         run: |
-          cd ..
           pwd
-          cd test_demo
+          cd test_demo/
           ls -ltra
 
 
