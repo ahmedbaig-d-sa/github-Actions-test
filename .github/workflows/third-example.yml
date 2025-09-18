@@ -13,4 +13,6 @@ jobs:
         run: ls -ltra
 
       - name: Script Execution step
-        run: ./third-example.yml
+        run: |
+          chmod +x third-example.sh
+          ./third-example.sh
