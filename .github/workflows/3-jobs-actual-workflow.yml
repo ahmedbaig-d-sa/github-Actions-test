@@ -36,8 +36,10 @@ jobs:
       
       - name: List Directory
         run: |
-          cd test_demo
+          cd ..
           ls -ltra
+          pwd
+          cd ~/test_demo
 
       - name: verify the data inside those files 
         run: cat file{1..3}.txt
