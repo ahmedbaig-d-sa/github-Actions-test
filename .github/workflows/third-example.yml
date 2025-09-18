@@ -4,7 +4,7 @@ on: push
 
 jobs:
   shell_script_workflow:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Step
         uses: actions/checkout@v5
