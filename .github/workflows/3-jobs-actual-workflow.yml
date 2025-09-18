@@ -1,5 +1,4 @@
-name: generate file in accurate manner
-
+name: multi-jobs Pipeline or workflow
 on: push
 
 jobs:
@@ -22,6 +21,7 @@ jobs:
 
   test_job_2:
     runs-on: ubuntu-latest
+    needs: buld_job_1
     steps:
       - name: List Directory
         run: ls -ltra
@@ -33,6 +33,7 @@ jobs:
 
   deploy_job_3:
     runs-on: ubuntu-latest
+    needs: test_job_2
     steps:
       - name: deploying files
         run: cd ~/test_demo
