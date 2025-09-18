@@ -57,8 +57,8 @@ jobs:
       
       - name: list files and deploying into /root directory
         run: |
-          sudo cp -r . /root
-          cd /root
+          sudo cp -r . $HOME
+          cd $HOME
           pwd
           ls -ltra
           
