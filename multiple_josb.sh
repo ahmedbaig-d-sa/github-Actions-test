@@ -20,4 +20,6 @@ cd ..
 
 pwd
 
+ls -ltra
+
 echo "All done ✅"
