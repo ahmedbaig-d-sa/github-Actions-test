@@ -16,8 +16,6 @@ Line 2: Shell scripting is fun
 Line 3: Testing file creation
 EOF
 
-cd ..
-
 pwd
 
 ls -ltra
