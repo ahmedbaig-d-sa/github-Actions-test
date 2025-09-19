@@ -44,7 +44,7 @@ jobs:
         with:
           name: build-artifacts
           path: |
-            test_demo
+            test_demo/**
         
 
   test_job_2:
