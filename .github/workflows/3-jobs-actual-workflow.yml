@@ -40,12 +40,13 @@ jobs:
       - name: List Directory demo_test
         run: |
           pwd
+          ls -la
           cd demo_test
-          ls -ltra
+          pwd && ls -ll
 
       - name: verify demo_test files content
         run: |
-          pwd
+          pwd && ls -ll
           cat file{1..3}.txt
 
       - name: List Directory test_demo
