@@ -34,8 +34,10 @@ jobs:
         run: |
           ls -ltra 
           pwd
-          cd ..
           cd test_demo
+          ls -ltra
+          cd ..
+          ls -ltra
     
       - name: Upload Artifacts into test
         uses: actions/upload-artifact@v4
