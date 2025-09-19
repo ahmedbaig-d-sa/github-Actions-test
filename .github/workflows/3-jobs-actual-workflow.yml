@@ -30,6 +30,23 @@ jobs:
 
           echo "All done ✅"
 
+      - name: create folder and files using script
+        run: |
+          mkdir -p demo_test
+          cd demo_test || exit
+
+          echo "This is file1 with test data" > file1.txt
+
+          echo "This is file2 with more data" > file2.txt 
+
+          cat <<EOF > file3.txt
+          Line 1: Hello World
+          Line 2: Shell scripting is fun
+          Line 3: Testing file creation
+          EOF
+
+          echo "All done ✅"
+
       - name: install commands and create files
         run: |
           ls -ltra 
@@ -38,13 +55,15 @@ jobs:
           ls -ltra
           cd ..
           ls -ltra
+          cd demo_test
     
       - name: Upload Artifacts into test
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: test_demo
-          include: test_demo/**/*
+          path: |
+            ./test_demo/**/*
+            ./demo_test/**/*
         
 
   # test_job_2:
