@@ -43,8 +43,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: .
-          include: test_demo/**
+          path: test_demo
+          include: test_demo/**/*
         
 
   # test_job_2:
