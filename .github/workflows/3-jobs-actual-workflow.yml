@@ -44,7 +44,9 @@ jobs:
           ls -ltra
 
       - name: verify demo_test files content
-        run: cat file{1..3}.txt
+        run: |
+          pwd
+          cat file{1..3}.txt
 
       - name: List Directory test_demo
         run: |
