@@ -9,10 +9,10 @@ mkdir -p test_demo
 cd test_demo || exit
 
 # Create some files with data
-echo "This is file1 with test data" > file1.txt
-echo "This is file2 with more data" > file2.txt
+echo "This is test_demo file1 with test data" > file1.txt
+echo "This is test_demo file2 with more data" > file2.txt
 cat <<EOF > file3.txt
-Line 1: Hello World
+Line 1: Hello World from test_demo
 Line 2: Shell scripting is fun
 Line 3: Testing file creation
 EOF
@@ -30,10 +30,10 @@ mkdir -p demo_test
 cd demo_test || exit
 
 # Create some files with data
-echo "This is file1 with test data" > file1.txt
-echo "This is file2 with more data" > file2.txt
+echo "This is demo_test file1 with test data" > file1.txt
+echo "This is demo_test file2 with more data" > file2.txt
 cat <<EOF > file3.txt
-Line 1: Hello World
+Line 1: Hello World from demo_test
 Line 2: Shell scripting is fun
 Line 3: Testing file creation
 EOF
