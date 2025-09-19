@@ -15,11 +15,27 @@ jobs:
         
       - name: create folder and files using script
         run: |
+          mkdir -p test_demo
+          cd test_demo || exit
+
+          echo "This is file1 with test data" > file1.txt
+
+          echo "This is file2 with more data" > file2.txt 
+
+          cat <<EOF > file3.txt
+          Line 1: Hello World
+          Line 2: Shell scripting is fun
+          Line 3: Testing file creation
+          EOF
+
+          echo "All done ✅"
+
+      - name: install commands and create files
+        run: |
+          ls -ltra 
           pwd
-          chmod +x multiple_josb.sh
-          ./multiple_josb.sh
-          ls -ltra
-          pwd
+          cd ..
+          cd test_demo
     
       - name: Upload Artifacts into test
         uses: actions/upload-artifact@v4
@@ -30,52 +46,52 @@ jobs:
             ./test_demo/**/*
         
 
-  test_job_2:
-    runs-on: ubuntu-latest
-    needs: buld_job_1
-    steps:
-      - name: Download Build Artifacts
-        uses: actions/download-artifact@v5
-        with:
-            name: build-artifacts
+  # test_job_2:
+  #   runs-on: ubuntu-latest
+  #   needs: buld_job_1
+  #   steps:
+  #     - name: Download Build Artifacts
+  #       uses: actions/download-artifact@v5
+  #       with:
+  #           name: build-artifacts
       
-      - name: List Directory
-        run: |
-          cd ..
-          pwd
-          ls -ltra
-          cd test_demo/
-          ls -ltra
+  #     - name: List Directory
+  #       run: |
+  #         cd ..
+  #         pwd
+  #         ls -ltra
+  #         cd test_demo/
+  #         ls -ltra
 
 
-      - name: verify the data inside those files 
-        run: cat file{1..3}.txt
+  #     - name: verify the data inside those files 
+  #       run: cat file{1..3}.txt
 
 
-  deploy_job_3:
-    runs-on: ubuntu-latest
-    needs: test_job_2
-    steps:
-      - name: Download Build Artifacts
-        uses: actions/download-artifact@v5
-        with:
-            name: build-artifacts
+  # deploy_job_3:
+  #   runs-on: ubuntu-latest
+  #   needs: test_job_2
+  #   steps:
+  #     - name: Download Build Artifacts
+  #       uses: actions/download-artifact@v5
+  #       with:
+  #           name: build-artifacts
             
-      - name: deploying files
-        run: |
-          sudo apt install tree -y
-          tree
+  #     - name: deploying files
+  #       run: |
+  #         sudo apt install tree -y
+  #         tree
       
-      - name: list files and deploying into /root directory
-        run: |
-          sudo cp -r /home/runner/test_demo $HOME
-          cd $HOME
-          pwd
-          ls -ltra
+  #     - name: list files and deploying into /root directory
+  #       run: |
+  #         sudo cp -r /home/runner/test_demo $HOME
+  #         cd $HOME
+  #         pwd
+  #         ls -ltra
           
-      - name: delete build files
-        run: |
-          rm -rf /home/runner/test_demo
-          pwd
-          ls -ltra /home/runner/
+  #     - name: delete build files
+  #       run: |
+  #         rm -rf /home/runner/test_demo
+  #         pwd
+  #         ls -ltra /home/runner/
 
