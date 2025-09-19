@@ -41,24 +41,23 @@ jobs:
         run: |
           pwd
           ls -la
-          cd demo_test
-          pwd && ls -ll
 
       - name: verify demo_test files content
         run: |
           pwd && ls -ll
+          cd demo_test
           cat file{1..3}.txt
 
       - name: List Directory test_demo
         run: |
           cd ..
           ls -ltra
-          cd test_demo
-          ls -ltra
-
 
       - name: verify test_demo files content
-        run: cat file{1..3}.txt
+        run: |
+          cd test_demo
+          ls -ltra
+          cat file{1..3}.txt
 
 
   deploy_job_3:
