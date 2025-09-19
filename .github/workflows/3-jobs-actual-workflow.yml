@@ -51,12 +51,12 @@ jobs:
       - name: List Directory test_demo
         run: |
           cd ..
-          ls -ltra
+          ls -lla
 
       - name: verify test_demo files content
         run: |
           cd test_demo
-          ls -ltra
+          ls -ls
           cat file{1..3}.txt
 
 
@@ -89,6 +89,7 @@ jobs:
           
       - name: delete build files
         run: |
+          ls -ll $GITHUB_WORKSPACE
           rm -rf $GITHUB_WORKSPACE/test_demo
           rm -rf $GITHUB_WORKSPACE/demo_test
 
